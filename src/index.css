@@ -11,28 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.div-people{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.div-people{  
 }
 
-.ul-people{    
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.ul-people{  
   margin: 0.8em;
   padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
 
 }
 
 .li-name{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
   list-style-type: none;
   padding: 16px;
+  border: 1px solid #ccc;
+  gap:0.6em;
   
 }
 .people-img{
-  max-width: 150px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

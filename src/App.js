@@ -10,13 +10,10 @@ function App() {
     try {
       const response = await axios.get('https://swapi.dev/api/people/');
       setData(response.data);     
-      // console.log('response . data : ',response.data.results);      
     } catch (error) {
       console.error(error);
     }    
   };
-  //axiosPromise();
-  //console.log(dataStarWars[0].picture)
 
   return (
     <div className="App">
@@ -28,29 +25,29 @@ function App() {
           </button>
           {data && (
             <div>
-            <h3>Personnages </h3>
-            <div className='div-people'>
-              {data.results.map((element, index) => (
-                <div>
-                    <ul className='ul-people' key={index}>
-                        <li className='li-name'>{element.name}</li>                
-                    </ul>
-                    <ul>
-                        {dataStarWars.map((el, id) => {                  
-                          return (
-                            <img 
-                                key={id}
-                                className='people-img'
-                                src={el.picture}
-                                alt=''                    
-                            />
-                          );
-                        })}
-                    </ul>
-                </div>               
-              ))}              
+              <h3>Personnages</h3>
+              <div className='div-people'>
+                <ul className='ul-people'>
+                  {data.results.map((element, index) => {
+                    
+                    const matchingStarWarsCharacter = dataStarWars.find((char) => char.name === element.name);
+
+                    return (
+                      <li key={index} className='li-name'>
+                        {element.name}
+                        {matchingStarWarsCharacter && (
+                          <img
+                            className='people-img'
+                            src={matchingStarWarsCharacter.picture}
+                            alt={element.name}
+                          />
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-          </div>          
           )}
         </div>
       </header>

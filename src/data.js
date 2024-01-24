@@ -2,12 +2,12 @@ export const dataStarWars = [
     {
         id: 1,
         name: 'Luke Skywalker',
-        picture: 'https://media.vogue.fr/photos/606dca7e47f477da2ff11fcf/1:1/w_2032,h_2032,c_limit/010_A7A08C89_416.jpg',
+        picture: 'https://www.ecranlarge.com/media/cache/1600x1200/uploads/image/001/006/star-wars-episode-iv-un-nouvel-espoir-la-guerre-des-etoiles-photo-mark-hamill-1006592.jpg',
     },
     {
         id: 2,
         name: 'C-3PO',
-        picture: 'https://s1.dmcdn.net/v/DRnmQ1Oj5epQEamGK/x720',
+        picture: 'https://media.gqmagazine.fr/photos/5df255b9c6b0590008eb2bd9/16:9/w_2560%2Cc_limit/main.jpg',
     },
     {
         id: 3,
@@ -37,7 +37,7 @@ export const dataStarWars = [
     {
         id: 8,
         name: 'R5-D4',
-        picture: 'https://static.wikia.nocookie.net/themandalorian/images/7/72/BTS_R5-D4.jpg/revision/latest?cb=20190205013229',
+        picture: 'https://static.fnac-static.com/multimedia/Images/F9/5F/0D/15/22074873-3-1520-2/tsp20230613125055/Figurine-Hot-Toys-TMS086-Star-wars-The-Book-Of-Boba-Fett-R5-D4-Pit-Droid-BD-72.jpg',
     },
     {
         id: 9,
