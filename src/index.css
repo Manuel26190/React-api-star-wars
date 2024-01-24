@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.div-people{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ul-people{    
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8em;
+  padding: 1em;
+
+}
+
+.li-name{
+  list-style-type: none;
+  padding: 16px;
+  
+}
+.people-img{
+  max-width: 150px;
+}

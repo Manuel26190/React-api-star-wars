@@ -1,30 +1,57 @@
-import React, { useState } from 'react'; // Importez le crochet 'useState'
+import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
+import { dataStarWars } from './data';
 
 function App() {
-  const [data, setData] = useState(null); // Utilisez l'état pour stocker les données
+  const [data, setData] = useState(null);
 
-  const handleAxiosClick = async () => {
+  const handleclickAxios = async () => {
     try {
-      const response = await axios.get('https://swapi.dev/api/people/1/');
-      //console.log(response.data);
-      setData(response.data); // Mettez à jour l'état avec les données reçues
+      const response = await axios.get('https://swapi.dev/api/people/');
+      setData(response.data);     
+      // console.log('response . data : ',response.data.results);      
     } catch (error) {
       console.error(error);
-    }
+    }    
   };
-  //console.log(data);
+  //axiosPromise();
+  //console.log(dataStarWars[0].picture)
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Api-test</h1>
+        <h1>Api Star Wars</h1>
         <div>
-          <button className="btn-axios" onClick={handleAxiosClick}>
-            Appel Axios
+          <button className="btn-axios" onClick={handleclickAxios}>
+            Voir les personnages
           </button>
-          <p>{data && <pre>{JSON.stringify(data, null, 2)}</pre>}</p>
+          {data && (
+            <div>
+            <h3>Personnages </h3>
+            <div className='div-people'>
+              {data.results.map((element, index) => (
+                <div>
+                    <ul className='ul-people' key={index}>
+                        <li className='li-name'>{element.name}</li>                
+                    </ul>
+                    <ul>
+                        {dataStarWars.map((el, id) => {                  
+                          return (
+                            <img 
+                                key={id}
+                                className='people-img'
+                                src={el.picture}
+                                alt=''                    
+                            />
+                          );
+                        })}
+                    </ul>
+                </div>               
+              ))}              
+            </div>
+          </div>          
+          )}
         </div>
       </header>
     </div>
