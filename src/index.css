@@ -4,38 +4,14 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;  
+  background: url('https://st4.depositphotos.com/18803028/29792/i/450/depositphotos_297921566-stock-photo-abstract-space-dark-background.jpg');  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.div-people{  
-}
 
-.ul-people{  
-  margin: 0.8em;
-  padding: 1em;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2em;
 
-}
-
-.li-name{
-  display: flex;
-  flex-direction: column;
-  
-  align-items: center;
-  list-style-type: none;
-  padding: 16px;
-  border: 1px solid #ccc;
-  gap:0.6em;
-  
-}
-.people-img{
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-}
