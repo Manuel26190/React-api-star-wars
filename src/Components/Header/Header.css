@@ -1,0 +1,28 @@
+.section-header{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.logo-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 3em;
+}
+
+nav{
+    /* border: 1px solid white; */
+    width: 60%;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* border: 1px solid white; */
+
+}

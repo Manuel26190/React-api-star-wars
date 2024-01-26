@@ -1,0 +1,50 @@
+.App {
+    text-align: center;
+  }
+  
+  
+  .App-header {    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  h1{
+    color: #FFA500;
+    
+  }
+  
+  .ul-people{  
+    margin: 0.8em;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  
+  .li-name{
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    align-items: center;
+    list-style-type: none;
+    padding: 16px;
+    border: 1px solid #ccc;
+    gap:0.6em;  
+    transition: 1000ms ease-in-out;
+  }
+  .li-name:hover{
+    transform: scale(1.1);
+    background: transparent;
+  }
+  
+  .people-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px double #FFA500 ;
+  }
