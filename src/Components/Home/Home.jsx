@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import { dataStarWars } from '../../data';
 
 function Home() {
-  const [data, setData] = useState(null);
-  const [dataWorld, setDataHomeWorld] = useState(null);
+  const [data, setData] = useState([]);
+  const [dataWorld, setDataHomeWorld] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   let urlPeople = 'https://swapi.dev/api/people/';
   let urlHomeWorld = 'https://swapi.dev/api/planets/';
@@ -15,9 +16,11 @@ function Home() {
   const axiosPromise = async (url, setdata) => {
     try {
       const response = await axios.get(url);
-      setdata(response.data);
+      setdata(response.data.results);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -29,26 +32,27 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>API Star Wars</h1>
-        <div>
-          {data && dataWorld && (
-            <div>
-              <h3>Personnages</h3>
-              <div className='div-people'>
-                <ul className='ul-people'>
-                  {data.results.map((element, index) => {
-                    const matchingStarWarsCharacter = dataStarWars.find((char) => char.name === element.name);
+        {loading ? (
+          <p>Chargement en cours...</p>
+        ) : (
+          <div>
+            <h2>De nos jours grâce à l'API Star Wars...</h2>
+            <div className='div-people'>
+              <ul className='ul-people'>
+                {data.map((element, index) => {
+                  const matchingStarWarsCharacter = dataStarWars.find((char) => char.name === element.name);
 
-                    const urlWorld = element.homeworld;
-                    const segments = urlWorld.split('/');
-                    const planetNumber = segments[segments.length - 2];
-                    const numbervalue = parseInt(planetNumber, 10);
-                    const adjustedIndex = numbervalue - 1;
+                  const urlWorld = element.homeworld;
+                  const segments = urlWorld.split('/');
+                  const planetNumber = segments[segments.length - 2];
+                  const numbervalue = parseInt(planetNumber, 10);
+                  const adjustedIndex = numbervalue - 1;
 
-                    const planetName = dataWorld.results[adjustedIndex]?.name;
+                  const planetName = dataWorld[adjustedIndex]?.name;
 
-                    return (
-                      <li key={index} className='li-name'>
+                  return (
+                    <Link to="/people" key={index}>
+                      <li className='li-name'>
                         {element.name}
                         {matchingStarWarsCharacter && (
                           <img
@@ -57,17 +61,14 @@ function Home() {
                             alt={element.name}
                           />
                         )}
-                        <p>Originaire de : {planetName || 'Stewjon'}</p>
-                        {/* Utilisez Link pour créer un lien vers PeopleCard */}
-                        <Link to="/people">Voir la carte du personnage</Link>
                       </li>
-                    );
-                  })}
-                </ul>
-              </div>
+                    </Link>
+                  );
+                })}
+              </ul>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </header>
     </div>
   );

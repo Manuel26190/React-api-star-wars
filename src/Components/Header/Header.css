@@ -3,18 +3,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    padding: 1em;
 }
 .logo-div{
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    width: 3em;
+    align-items: center;    
+}
+.img-logo{
+    max-width: 10em; 
 }
 
 nav{
     /* border: 1px solid white; */
-    width: 60%;
+    width: 25%;
 }
 
 ul{
@@ -22,7 +24,20 @@ ul{
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     /* border: 1px solid white; */
-
+    text-decoration: none;
+}
+.li-header{
+    color: #FFA500;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0.6em;
+    border: 1px solid #0070FF;
+    padding: 0.5em;
+    text-align: center;
+}
+Link{
+    text-decoration: none;
 }

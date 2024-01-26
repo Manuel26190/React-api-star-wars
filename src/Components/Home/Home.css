@@ -1,7 +1,6 @@
 .App {
     text-align: center;
-  }
-  
+  }  
   
   .App-header {    
     min-height: 100vh;
@@ -17,12 +16,18 @@
     color: #FFA500;
     
   }
+  h2{
+    color: #0070FF;
+    margin-bottom: 2em;
+    text-shadow: 1px 1px 60px #bba5a5;
+  }
   
   .ul-people{  
     margin: 0.8em;
     padding: 1em;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2em;
   }
   
@@ -36,6 +41,8 @@
     border: 1px solid #ccc;
     gap:0.6em;  
     transition: 1000ms ease-in-out;
+    color: white;
+        
   }
   .li-name:hover{
     transform: scale(1.1);
