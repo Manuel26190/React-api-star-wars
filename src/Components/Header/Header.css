@@ -23,9 +23,7 @@ ul{
     list-style-type: none;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    /* border: 1px solid white; */
-    text-decoration: none;
+    align-items: center;    
 }
 .li-header{
     color: #FFA500;
@@ -37,7 +35,12 @@ ul{
     border: 1px solid #0070FF;
     padding: 0.5em;
     text-align: center;
+    transition: 500ms ease-in-out;                
 }
-Link{
-    text-decoration: none;
+.li-header:hover{
+    border-color: white;
+    transform: rotate(360deg);
+
 }
+
+

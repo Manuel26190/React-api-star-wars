@@ -13,8 +13,7 @@ ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
       <Router>
           <Header />
-            <Routes>
-                       
+            <Routes>                       
               <Route path="/home" element={<Home />} />         
               <Route path="/people" element={<PeopleCard />} />
             </Routes>

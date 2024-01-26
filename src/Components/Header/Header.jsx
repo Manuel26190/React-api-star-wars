@@ -9,11 +9,11 @@ const Header = () => {
             <div className="logo-div">
                 <img className="img-logo" src={logoStarWars} alt="" />
             </div>
-                <nav>
-                    <ul>
-                        <Link to='/home'><li className="li-header">Home</li></Link>
-                        <a href="https://swapi.dev/"><li className="li-header">Api Star Wars</li></a>
-                    </ul>
+            <nav>
+                <ul>                        
+                    <Link to='/home'><li className="li-header">Home</li></Link>
+                    <a href="https://swapi.dev/"><li className="li-header">Api Star Wars</li></a>
+                </ul>
             </nav>
         </section>
         
