@@ -46,19 +46,19 @@ function Home() {
                   const planetNumber = segments[segments.length - 2];
                   const numbervalue = parseInt(planetNumber, 10);
                   const adjustedIndex = numbervalue - 1;
-
                   const planetName = dataWorld[adjustedIndex]?.name;
+                  console.log(planetName);
 
                   return (
                     <Link to="/people" key={index}>
                       <li className='li-name'>
                         {element.name}
-                        {matchingStarWarsCharacter && (
+                        {matchingStarWarsCharacter && (                          
                           <img
                             className='people-img'
                             src={matchingStarWarsCharacter.picture}
                             alt={element.name}
-                          />
+                          />                          
                         )}
                       </li>
                     </Link>

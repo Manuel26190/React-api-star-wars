@@ -3,27 +3,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 1em 6em 1em 5em ;
+    
 }
 .logo-div{
     display: flex;
     justify-content: space-around;
-    align-items: center;    
+    align-items: center;        
 }
 .img-logo{
     max-width: 10em; 
 }
 
-nav{
-    /* border: 1px solid white; */
+nav{    
     width: 25%;
 }
 
 ul{
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
-    align-items: center;    
+    gap: 2em;
+    justify-content: flex-end;   
 }
 .li-header{
     color: #FFA500;
@@ -35,11 +35,11 @@ ul{
     border: 1px solid #0070FF;
     padding: 0.5em;
     text-align: center;
-    transition: 500ms ease-in-out;                
+    transition: all 1000ms ease-in-out;                
 }
 .li-header:hover{
-    border-color: white;
-    transform: rotate(360deg);
+    border-color: white;    
+    transform: rotateY(360deg);    
 
 }
 
