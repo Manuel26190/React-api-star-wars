@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { dataStarWars } from '../../data';
+import PeopleCard from '../PeopleCard/PeopleCard';
 
 function Home() {
   const [data, setData] = useState([]);
@@ -40,6 +41,7 @@ function Home() {
               <ul className='ul-people'>
                 {data.map((element, index) => {
                   const matchingStarWarsCharacter = dataStarWars.find((char) => char.name === element.name);
+                  const id = element.url.split('/').filter(Boolean).pop();
 
                   const urlWorld = element.homeworld;
                   const segments = urlWorld.split('/');
@@ -47,12 +49,12 @@ function Home() {
                   const numbervalue = parseInt(planetNumber, 10);
                   const adjustedIndex = numbervalue - 1;
                   const planetName = dataWorld[adjustedIndex]?.name;
-                  console.log(planetName);
 
                   return (
-                    <Link to="/people" key={index}>
+                    <Link to={`/people/${id}`} key={index}>
                       <li className='li-name'>
-                        {element.name}
+                        
+                        
                         {matchingStarWarsCharacter && (                          
                           <img
                             className='people-img'
@@ -60,6 +62,7 @@ function Home() {
                             alt={element.name}
                           />                          
                         )}
+                        <p>Originaire de : {planetName ? planetName : "Skeltow"}</p>
                       </li>
                     </Link>
                   );

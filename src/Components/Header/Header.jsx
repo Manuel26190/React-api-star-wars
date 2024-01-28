@@ -13,7 +13,7 @@ const Header = () => {
             </div>
             <nav>
                 <ul>                        
-                    <Link to='/home'>
+                    <Link to='/'>
                         <li className="li-header">Home</li>
                     </Link>
                     <a href="https://swapi.dev/">

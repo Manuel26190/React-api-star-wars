@@ -1,25 +1,26 @@
+// App.jsx (ou le composant principal qui configure les routes)
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import PeopleCard from './Components/PeopleCard/PeopleCard';
-import './index.css';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import './index.css'
 
+const App = () => {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* Utilisez "/people/:id" pour rendre PeopleCard uniquement pour les détails d'une personne spécifique */}
+        <Route path="/people/:id" element={<PeopleCard />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
 
 const rootElement = document.getElementById('root');
-ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-      <Router>
-          <Header />
-            <Routes>                       
-              <Route path="/home" element={<Home />} />         
-              <Route path="/people" element={<PeopleCard />} />
-            </Routes>
-          <Footer />
-      </Router>   
-  </React.StrictMode>
-);
-
-
+ReactDOM.createRoot(rootElement).render(<App />);

@@ -1,10 +1,13 @@
-// PeopleCardComponent.jsx
 import React from 'react';
+import './PeopleCard.css'
 
-const PeopleCard = () => {
+const PeopleCard = ({ name, height, mass }) => {
   return (
     <div>      
-      <h2>Carte personnage</h2>
+      <h2 className='people-card-title'>Nom :{name}</h2>
+      <p className='people-card-text'>Height: {height}</p>
+      <p className='people-card-text'>Mass: {mass}</p>
+      {/* Ajoutez d'autres informations ici avec leurs étiquettes */}
     </div>
   );
 };
