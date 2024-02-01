@@ -22,7 +22,7 @@ export const dataStarWars = [
     {
         id: 5,
         name: 'Leia Organa',
-        picture: 'https://static.miraheze.org/fictionwiki/thumb/3/38/Carrie-Fisher-le-message-d-outre-tombe-de-la-princesse-Leia-qui-a-emu-sa-famille.jpg/800px-Carrie-Fisher-le-message-d-outre-tombe-de-la-princesse-Leia-qui-a-emu-sa-famille.jpg',
+        picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfBxSXRxn-eF8aYNB-uqwFCVZ_jcv7dR10HFncH09cfCr5P2Ard4XzxA2K26iK7CY1QiU&usqp=CAU',
     },
     {
         id: 6,

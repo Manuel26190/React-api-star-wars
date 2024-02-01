@@ -11,7 +11,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   let urlPeople = 'https://swapi.dev/api/people/';
-  let urlHomeWorld = 'https://swapi.dev/api/planets/';
+  // let urlHomeWorld = 'https://swapi.dev/api/planets/';
 
   const axiosPromise = async (url, setdata) => {
     try {
@@ -26,7 +26,7 @@ function Home() {
 
   useEffect(() => {
     axiosPromise(urlPeople, setData);
-    axiosPromise(urlHomeWorld, setDataHomeWorld);
+    // axiosPromise(urlHomeWorld, setDataHomeWorld);
   }, []);
 
   return (
@@ -53,8 +53,7 @@ function Home() {
                   return (
                     <Link to={`/people/${id}`} key={index}>
                       <li className='li-name'>
-                        
-                        
+                      <p>{element.name}</p>                        
                         {matchingStarWarsCharacter && (                          
                           <img
                             className='people-img'
