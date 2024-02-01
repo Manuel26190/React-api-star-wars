@@ -9,6 +9,9 @@ const PeopleCard = () => {
 
   const {id} = useParams();
   //console.log('id :',id);
+
+  const dataId = id -1;
+  //console.log(dataStarWars[dataId])  
   
   const [data, setData] = useState({});
   //const [dataWorld, setDataHomeWorld] = useState([]);
@@ -24,7 +27,7 @@ const PeopleCard = () => {
     try {
       const response = await axios.get(url);
       setdata(response.data);
-      console.log('response data result',response.data)
+      //console.log('response data result',response.data)
     } catch (error) {
       console.error(error);
     } 
@@ -37,16 +40,22 @@ const PeopleCard = () => {
 
   
   return (
-    <div>
-      {data && (        
+    <section className='people-card-section'>
         <div>
-          <h3 className='people-card-title'>{data.name}</h3>
-          <p className='people-card-text'>Poids : {data.mass} kg</p>
-          <p></p>
-          <p></p>
-        </div>
-      )}
-    </div>    
+          {data && dataStarWars &&  (        
+            <div className='div-card-people'>
+              <h1 className='people-card-title'>{data.name}</h1>
+              <img src={dataStarWars[dataId].picture} alt={data.name} className='people-img-card'></img>
+              <p className='people-card-text'>Taille : {data.height}</p>
+              <p className='people-card-text'>Poids : {data.mass} kg</p>
+              <p className='people-card-text'>Genre : {data.gender === 'n/a' ? "auncun genre n'est attribué à un robot" : data.gender }</p> 
+              <p className='people-card-text'>Couleur de cheveux : {data.hair_color === 'n/a' ? 'ne possède pas de cheveux' : data.hair_color }</p>
+            </div>
+          )};
+      
+    </div> 
+    </section>
+       
   );
 }        
 

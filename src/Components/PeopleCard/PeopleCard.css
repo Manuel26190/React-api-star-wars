@@ -1,6 +1,27 @@
+.people-card-section{
+    display: flex;    
+    justify-content: center;    
+}
+h1{
+    margin-bottom: 1em;
+}
 .people-card-title{
     color: white;
 }
 .people-card-text{
     color: white;
+    font-size: 1.2em;
+    margin: 0.8em 0 0 0;
 }
+.div-card-people{    
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.people-img-card{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border: 5px double #FFA500 ;
+  }
