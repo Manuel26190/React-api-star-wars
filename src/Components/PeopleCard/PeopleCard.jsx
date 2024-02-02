@@ -14,18 +14,19 @@ const PeopleCard = () => {
 
     const [data, setData] = useState([])
     const [dataWorld, setDataHomeWorld] = useState([])
+    const [dataFilmsApi, setDataFilms] = useState([])
 
     let urlPeopleCard = `${'https://swapi.dev/api/people/'}${id}`
-    //console.log('url people card :',urlPeopleCard);
 
     let urlHomeWorld = 'https://swapi.dev/api/planets/'
-    //console.log('url planete :', urlHomeWorld);
+
+    let urlFilms = 'https://swapi.dev/api/films/'
 
     const axiosPromise = async (url, setdata) => {
         try {
             const response = await axios.get(url)
             setdata(response.data)
-            //console.log('response data', response.data)
+            //console.log('response data', response.data.films)
         } catch (error) {
             console.error(error)
         }
@@ -39,9 +40,18 @@ const PeopleCard = () => {
         axiosPromise(urlHomeWorld, setDataHomeWorld)
     }, [urlHomeWorld])
 
-    //console.log('data world :', dataWorld)
+    useEffect(() => {
+        axiosPromise(urlFilms, setDataFilms)
+    }, [urlFilms])
+
+    const dataFilmsResults = dataFilmsApi.results
+    //console.log(dataFilmsResults)
+
     const dataWorldResult = dataWorld.results
     //console.log('data world results', dataWorldResult)
+
+    const dataFilms = data.films
+    //console.log(dataFilms)
 
     const birthYear = data?.birth_year
     const birthYearWithoutBBY = birthYear?.replace('BBY', '') || ''
@@ -54,6 +64,24 @@ const PeopleCard = () => {
         'white, blue': ' blanc et bleu',
         white: ' claire',
         'white, red': ' blanc et rouge',
+    }
+
+    const eyesColorTranslation = {
+        blue: ' bleu',
+        yellow: ' jaune',
+        red: 'rouge',
+        brown: ' marron',
+        'blue-gray': ' bleu-gris',
+    }
+
+    const hairColorTranslation = {
+        'auburn, white': 'bruns-roux, blancs',
+        black: 'noirs',
+        'n/a': '',
+        none: '',
+        brown: 'bruns',
+        'brown, grey': 'bruns, gris',
+        blond: 'blonds',
     }
     //console.log(dataWorld)
 
@@ -84,7 +112,7 @@ const PeopleCard = () => {
                         ></img>
                         <p className="people-card-text">
                             {data.gender === 'n/a'
-                                ? 'Est un robot '
+                                ? 'Est un droid '
                                 : (data.gender === 'male'
                                       ? 'Est un homme '
                                       : '') ||
@@ -130,7 +158,7 @@ const PeopleCard = () => {
                         <p className="people-card-text">
                             Couleur des yeux :{' '}
                             <span className="span-people-text">
-                                {data.eye_color}
+                                {eyesColorTranslation[data.eye_color] || ''}
                             </span>
                         </p>
                         <p className="people-card-text">
@@ -139,17 +167,29 @@ const PeopleCard = () => {
                                 {skinColorTranslations[data.skin_color] || ''}
                             </span>
                         </p>
-                        {data.hair_color === 'n/a' ||
-                        data.hair_color === 'none' ? (
+                        {data.hair_color === 'none' ||
+                        data.hair_color === 'n/a' ? (
                             ''
                         ) : (
                             <p className="people-card-text">
                                 Couleur de cheveux :{' '}
                                 <span className="span-people-text">
-                                    {data.hair_color}
+                                    {hairColorTranslation[data.hair_color] ||
+                                        ''}
                                 </span>
                             </p>
                         )}
+                        <p className="people-card-text">
+                            Présent dans les films
+                            {dataFilmsResults &&
+                                dataFilmsResults.map((element, index) => {
+                                    return (
+                                        <li className="li-films" key={index}>
+                                            {element.title}
+                                        </li>
+                                    )
+                                })}
+                        </p>
                     </div>
                 )}
             </div>

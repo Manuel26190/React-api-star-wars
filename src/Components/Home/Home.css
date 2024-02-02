@@ -12,14 +12,22 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-
 h1 {
     color: #ffa500;
+}
+@keyframes animationTitle {
+    0% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 h2 {
     color: #0070ff;
     margin-bottom: 2em;
     text-shadow: 1px 1px 60px #bba5a5;
+    animation: animationTitle 3000ms ease-in-out;
 }
 
 .ul-people {
