@@ -1,27 +1,36 @@
-.people-card-section{
-    display: flex;    
-    justify-content: center;    
+.people-card-section {
+    display: flex;
+    justify-content: center;
 }
-h1{
-    margin-bottom: 1em;
+h1 {
+    color: #0070ff;
+    margin-bottom: 2em;
+    text-shadow: 1px 1px 60px #bba5a5;
+    font-size: 1.7em;
 }
-.people-card-title{
+.people-card-title {
     color: white;
 }
-.people-card-text{
+.people-card-text {
     color: white;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 500;
     margin: 0.8em 0 0 0;
 }
-.div-card-people{    
+.span-people-text {
+    font-size: 1em;
+    color: #ffe919;
+    font-weight: 200;
+}
+.div-card-people {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
 }
 
-.people-img-card{
+.people-img-card {
     width: 400px;
     height: 400px;
     object-fit: cover;
-    border: 5px double #FFA500 ;
-  }
+    border: 5px double #ffa500;
+}

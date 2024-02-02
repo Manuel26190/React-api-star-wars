@@ -1,9 +1,9 @@
 .App {
     text-align: center;
     padding: 5em;
-  }  
-  
-  .App-header {    
+}
+
+.App-header {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,48 +11,49 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
-  
-  h1{
-    color: #FFA500;
-    
-  }
-  h2{
-    color: #0070FF;
+}
+
+h1 {
+    color: #ffa500;
+}
+h2 {
+    color: #0070ff;
     margin-bottom: 2em;
     text-shadow: 1px 1px 60px #bba5a5;
-  }
-  
-  .ul-people{  
+}
+
+.ul-people {
     margin: 0.8em;
     padding: 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2em;
-  }
-  
-  .li-name{
+}
+
+.li-name {
     display: flex;
     flex-direction: column;
     background: #000;
     align-items: center;
     list-style-type: none;
-    padding: 16px;
+    padding: 1em;
     border: 1px solid #ccc;
-    gap:0.6em;  
+    gap: 0.6em;
     transition: 1000ms ease-in-out;
     color: white;
-        
-  }
-  .li-name:hover{
+}
+.li-name:hover {
     transform: scale(1.1);
     background: transparent;
-  }
-  
-  .people-img{
+}
+.li-name :nth-child(1) {
+    margin: 0;
+}
+
+.people-img {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border: 5px double #FFA500 ;
-  }
+    border: 5px double #ffa500;
+}
