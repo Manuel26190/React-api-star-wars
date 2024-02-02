@@ -39,24 +39,37 @@ const PeopleCard = () => {
         axiosPromise(urlHomeWorld, setDataHomeWorld)
     }, [urlHomeWorld])
 
-    const birthYear = data?.birth_year // Utilisation de l'optional chaining pour éviter une erreur si data est undefined
-    const birthYearWithoutBBY = birthYear?.replace('BBY', '') || '' // Utilisation de l'optional chaining et du nullish coalescing pour éviter une erreur si birthYear est undefined
-    console.log(birthYearWithoutBBY)
+    //console.log('data world :', dataWorld)
+    const dataWorldResult = dataWorld.results
+    //console.log('data world results', dataWorldResult)
 
-    const urlWorld = data.homeworld
-    let planetName
+    const birthYear = data?.birth_year
+    const birthYearWithoutBBY = birthYear?.replace('BBY', '') || ''
+    //console.log(birthYearWithoutBBY)
 
-    if (urlWorld) {
+    const skinColorTranslations = {
+        gold: ' or',
+        fair: ' claire',
+        light: ' claire',
+        'white, blue': ' blanc et bleu',
+        white: ' claire',
+        'white, red': ' blanc et rouge',
+    }
+    //console.log(dataWorld)
+
+    function homeWorldPeople(ApiData, ApiDataWorldResult, index) {
+        const urlWorld = ApiData.homeworld
         const segments = urlWorld.split('/')
         const planetNumber = segments[segments.length - 2]
         const numbervalue = parseInt(planetNumber, 10)
         const adjustedIndex = numbervalue - 1
-        planetName = dataWorld[adjustedIndex]?.name || ''
+        const planetName = ApiDataWorldResult[adjustedIndex]?.name || 'Stewjon'
+        return (
+            <span key={index} className="span-people-text">
+                {planetName}
+            </span>
+        )
     }
-
-    //console.log(planetName)
-
-    // Utilisez planetName comme nécessaire dans votre composant.
 
     return (
         <section className="people-card-section">
@@ -80,19 +93,24 @@ const PeopleCard = () => {
                                       : '')}
                         </p>
                         <p className="people-card-text">
-                            Originaire de la planète :
-                            <span className="span-people-text">
-                                {planetName ? planetName : ' Skeltow'}
-                            </span>
+                            Originaire de la planète :{' '}
+                            {dataWorldResult && (
+                                <span className="span-people-text">
+                                    {homeWorldPeople(data, dataWorldResult)}
+                                </span>
+                            )}
                         </p>
-                        <p className="people-card-text">
-                            Date de naissance :{' '}
-                            <span className="span-people-text">
-                                {birthYearWithoutBBY} années avant la baitaille
-                                de Yavin
-                            </span>
-                        </p>
-
+                        {data.birth_year === 'unknown' ? (
+                            ''
+                        ) : (
+                            <p className="people-card-text">
+                                Date de naissance :{' '}
+                                <span className="span-people-text">
+                                    {birthYearWithoutBBY} années avant la
+                                    baitaille de Yavin
+                                </span>
+                            </p>
+                        )}
                         <p className="people-card-text">
                             Taille :{' '}
                             <span className="span-people-text">
@@ -110,7 +128,7 @@ const PeopleCard = () => {
                             </span>
                         </p>
                         <p className="people-card-text">
-                            Ses yeux sont de couleur :{' '}
+                            Couleur des yeux :{' '}
                             <span className="span-people-text">
                                 {data.eye_color}
                             </span>
@@ -118,19 +136,11 @@ const PeopleCard = () => {
                         <p className="people-card-text">
                             Couleur de peau ou de revêtement :
                             <span className="span-people-text">
-                                {data.skin_color === 'gold' ? ' or' : ''}
-                                {data.skin_color === 'fair' ? ' claire' : ''}
-                                {data.skin_color === 'light' ? ' claire' : ''}
-                                {data.skin_color === 'white, blue'
-                                    ? ' blanc et bleu'
-                                    : ''}
-                                {data.skin_color === 'white' ? ' blanche' : ''}
-                                {data.skin_color === 'white, red'
-                                    ? ' blanc et rouge'
-                                    : ''}
+                                {skinColorTranslations[data.skin_color] || ''}
                             </span>
                         </p>
-                        {data.hair_color === 'n/a' ? (
+                        {data.hair_color === 'n/a' ||
+                        data.hair_color === 'none' ? (
                             ''
                         ) : (
                             <p className="people-card-text">
@@ -142,7 +152,6 @@ const PeopleCard = () => {
                         )}
                     </div>
                 )}
-                ;
             </div>
         </section>
     )

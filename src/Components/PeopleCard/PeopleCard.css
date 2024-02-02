@@ -5,6 +5,7 @@
 h1 {
     color: #0070ff;
     margin-bottom: 2em;
+    margin-top: 0;
     text-shadow: 1px 1px 60px #bba5a5;
     font-size: 1.7em;
 }
