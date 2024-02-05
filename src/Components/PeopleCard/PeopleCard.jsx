@@ -1,11 +1,14 @@
 import './PeopleCard.css'
 import { dataStarWars } from '../../data'
-import { useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './PeopleCard.css'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
-const PeopleCard = () => {
+const PeopleCard = (index) => {
+    const navigate = useNavigate()
+
     const { id } = useParams()
     //console.log('id :',id);
 
@@ -50,7 +53,7 @@ const PeopleCard = () => {
     const dataWorldResult = dataWorld.results
     //console.log('data world results', dataWorldResult)
 
-    const dataFilms = data.films
+    //const dataFilms = data.films
     //console.log(dataFilms)
 
     const birthYear = data?.birth_year
@@ -83,7 +86,34 @@ const PeopleCard = () => {
         'brown, grey': 'bruns, gris',
         blond: 'blonds',
     }
-    //console.log(dataWorld)
+
+    const filmList = {
+        'A New Hope': 'Un nouvel espoir',
+        'The Empire Strikes Back': "L'Empire contre-attaque",
+        'Return of the Jedi': 'Le Retour du Jedi',
+        'The Phantom Menace': 'La menace fantôme',
+        'Attack of the Clones': "L'attaque des clones",
+        'Revenge of the Sith': 'La revanche des Sith',
+    }
+
+    const generateFilmLink = (episode_id) => {
+        switch (episode_id) {
+            case 1:
+                return 'https://www.starwars.com/films/star-wars-episode-iv-a-new-hope'
+            case 2:
+                return 'https://www.starwars.com/films/star-wars-episode-v-the-empire-strikes-back'
+            case 3:
+                return 'https://www.starwars.com/films/star-wars-episode-vi-return-of-the-jedi'
+            case 4:
+                return 'https://www.starwars.com/films/star-wars-episode-i-the-phantom-menace'
+            case 5:
+                return 'https://www.starwars.com/films/star-wars-episode-ii-attack-of-the-clones'
+            case 6:
+                return 'https://www.starwars.com/films/star-wars-episode-iii-revenge-of-the-sith'
+            default:
+                return ''
+        }
+    }
 
     function homeWorldPeople(ApiData, ApiDataWorldResult, index) {
         const urlWorld = ApiData.homeworld
@@ -99,17 +129,54 @@ const PeopleCard = () => {
         )
     }
 
+    const handleNextclick = () => {
+        let id = data.url.split('/').filter(Boolean).pop()
+        let idNumber = parseInt(id, 10)
+        let nextId
+        if (idNumber === 10) {
+            nextId = 1
+        } else {
+            nextId = idNumber + 1
+        }
+        navigate(`/people/${nextId}`)
+    }
+    const handlePreviousclick = () => {
+        let id = data.url.split('/').filter(Boolean).pop()
+        let idNumber = parseInt(id, 10)
+        let nextId = idNumber - 1
+        if (idNumber === 1) {
+            nextId = 10
+        }
+        navigate(`/people/${nextId}`)
+    }
+    console.log(data)
+
     return (
         <section className="people-card-section">
             <div>
                 {data && dataStarWars && (
                     <div className="div-card-people">
                         <h1>{data.name}</h1>
-                        <img
-                            src={dataStarWars[dataId].picture}
-                            alt={data.name}
-                            className="people-img-card"
-                        ></img>
+                        <div className="people-img-div">
+                            <button
+                                className="previous-btn"
+                                onClick={handlePreviousclick}
+                            >
+                                <FaChevronLeft />
+                            </button>
+                            <img
+                                src={dataStarWars[dataId].picture}
+                                alt={data.name}
+                                className="people-img-card"
+                            ></img>
+                            <button
+                                className="next-btn"
+                                onClick={handleNextclick}
+                            >
+                                <FaChevronRight />
+                            </button>
+                        </div>
+
                         <p className="people-card-text">
                             {data.gender === 'n/a'
                                 ? 'Est un droid '
@@ -180,12 +247,26 @@ const PeopleCard = () => {
                             </p>
                         )}
                         <p className="people-card-text">
-                            Présent dans les films
+                            Présent dans les films :
                             {dataFilmsResults &&
                                 dataFilmsResults.map((element, index) => {
+                                    const urlFilm = element.url
+                                    const segments = urlFilm.split('/')
+                                    const filmNumber =
+                                        segments[segments.length - 2]
+                                    const numberValue = parseInt(filmNumber, 10)
+
                                     return (
                                         <li className="li-films" key={index}>
-                                            {element.title}
+                                            <a
+                                                href={generateFilmLink(
+                                                    numberValue
+                                                )}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {element.title}
+                                            </a>
                                         </li>
                                     )
                                 })}

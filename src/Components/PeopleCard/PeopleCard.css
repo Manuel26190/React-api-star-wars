@@ -38,13 +38,39 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
-
+.people-img-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 120%;
+}
+.previous-btn {
+    background: transparent;
+    border: none;
+    font-size: 6em;
+    color: #ffe919;
+    display: flex;
+}
+.next-btn {
+    color: #ffe919;
+    background: transparent;
+    border: none;
+    font-size: 6em;
+    font-weight: 400;
+    display: flex;
+}
 .people-img-card {
     width: 400px;
     height: 400px;
     object-fit: cover;
     border: 5px double #ffa500;
 }
+
 .li-films {
-    margin-top: 0.2em;
+    margin-top: 0.3em;
+    list-style-type: none;
+    text-align: center;
+}
+.li-films a {
+    color: #ffa500;
 }
