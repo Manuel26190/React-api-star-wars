@@ -40,9 +40,9 @@ h1 {
 }
 .people-img-div {
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 120%;
+    justify-content: space-between;
 }
 .previous-btn {
     background: transparent;
@@ -50,6 +50,11 @@ h1 {
     font-size: 6em;
     color: #ffe919;
     display: flex;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.previous-btn:hover {
+    opacity: 1;
 }
 .next-btn {
     color: #ffe919;
@@ -58,6 +63,11 @@ h1 {
     font-size: 6em;
     font-weight: 400;
     display: flex;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.next-btn:hover {
+    opacity: 1;
 }
 .people-img-card {
     width: 400px;
@@ -67,7 +77,7 @@ h1 {
 }
 
 .li-films {
-    margin-top: 0.3em;
+    margin-top: 0.5em;
     list-style-type: none;
     text-align: center;
 }

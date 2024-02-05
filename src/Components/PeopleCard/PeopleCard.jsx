@@ -48,7 +48,10 @@ const PeopleCard = (index) => {
     }, [urlFilms])
 
     const dataFilmsResults = dataFilmsApi.results
-    //console.log(dataFilmsResults)
+    //console.log('data film api',dataFilmsResults)
+
+    const dataPeopleFilm = data.films
+    //console.log('data people film :', dataPeopleFilm)
 
     const dataWorldResult = dataWorld.results
     //console.log('data world results', dataWorldResult)
@@ -149,7 +152,6 @@ const PeopleCard = (index) => {
         }
         navigate(`/people/${nextId}`)
     }
-    console.log(data)
 
     return (
         <section className="people-card-section">
@@ -248,24 +250,34 @@ const PeopleCard = (index) => {
                         )}
                         <p className="people-card-text">
                             Présent dans les films :
-                            {dataFilmsResults &&
-                                dataFilmsResults.map((element, index) => {
-                                    const urlFilm = element.url
-                                    const segments = urlFilm.split('/')
+                            {dataPeopleFilm &&
+                                dataFilmsResults &&
+                                dataPeopleFilm.map((element, index) => {
+                                    const segments = element.split('/')
+                                    //console.log('segments', segments)
                                     const filmNumber =
                                         segments[segments.length - 2]
+                                    //console.log('file number : ', filmNumber)
                                     const numberValue = parseInt(filmNumber, 10)
-
+                                    const numberFilm = numberValue - 1
+                                    //console.log('number value :', numberValue)
                                     return (
                                         <li className="li-films" key={index}>
                                             <a
                                                 href={generateFilmLink(
                                                     numberValue
                                                 )}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
                                             >
-                                                {element.title}
+                                                {
+                                                    filmList[
+                                                        dataFilmsResults[
+                                                            numberFilm
+                                                        ] &&
+                                                            dataFilmsResults[
+                                                                numberFilm
+                                                            ].title
+                                                    ]
+                                                }
                                             </a>
                                         </li>
                                     )
