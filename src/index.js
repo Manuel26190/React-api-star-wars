@@ -13,8 +13,7 @@ const App = () => {
         <Router>
             <Header />
             <Routes>
-                <Route path="/home-api-star-wars" element={<Home />} />
-                {/* Utilisez "/people/:id" pour rendre PeopleCard uniquement pour les détails d'une personne spécifique */}
+                <Route path="/starwars-home" element={<Home />} />
                 <Route path="/people/:id" element={<PeopleCard />} />
             </Routes>
             <Footer />

@@ -11,7 +11,7 @@ const Header = () => {
             </div>
             <nav>
                 <ul>
-                    <Link to="/home-api-star-wars">
+                    <Link to="/starwars-home">
                         <li className="li-header">Home</li>
                     </Link>
                     <a href="https://swapi.dev/">
