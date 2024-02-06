@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-api-star-wars/static/css/main.c8914ece.css",
+    "main.js": "/React-api-star-wars/static/js/main.673c1a2e.js",
+    "static/media/Logo.png": "/React-api-star-wars/static/media/Logo.eb47777dea3c780d9931.png",
+    "index.html": "/React-api-star-wars/index.html",
+    "main.c8914ece.css.map": "/React-api-star-wars/static/css/main.c8914ece.css.map",
+    "main.673c1a2e.js.map": "/React-api-star-wars/static/js/main.673c1a2e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8914ece.css",
+    "static/js/main.673c1a2e.js"
+  ]
+}
