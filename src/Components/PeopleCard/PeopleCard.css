@@ -25,7 +25,7 @@ h1 {
 .people-card-text {
     color: white;
     font-size: 1.3em;
-    font-weight: 500;
+    font-weight: 300;
     margin: 0.8em 0 0 0;
 }
 .span-people-text {
@@ -80,6 +80,10 @@ h1 {
     margin-top: 0.5em;
     list-style-type: none;
     text-align: center;
+    transition: 1000ms ease-in-out;
+}
+.li-films:hover {
+    transform: scale(1.2);
 }
 .li-films a {
     color: #ffa500;
