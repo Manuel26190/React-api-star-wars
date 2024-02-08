@@ -13,7 +13,7 @@ const App = () => {
         <Router>
             <Header />
             <Routes>
-                <Route path="/starwars-home" element={<Home />} />
+                <Route path="/home-starwars" element={<Home />} />
                 <Route path="/people/:id" element={<PeopleCard />} />
             </Routes>
             <Footer />
