@@ -30,6 +30,13 @@ function Home() {
         // axiosPromise(urlHomeWorld, setDataHomeWorld);
     }, [])
 
+    const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -51,7 +58,11 @@ function Home() {
                                         .pop()
 
                                     return (
-                                        <Link to={`/people/${id}`} key={index}>
+                                        <Link
+                                            to={`/people/${id}`}
+                                            key={index}
+                                            onClick={handleClick}
+                                        >
                                             <li className="li-name">
                                                 <p>{element.name}</p>
                                                 {matchingStarWarsCharacter && (

@@ -141,6 +141,10 @@ const PeopleCard = (index) => {
         } else {
             nextId = idNumber + 1
         }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
         navigate(`/people/${nextId}`)
     }
     const handlePreviousclick = () => {
@@ -150,6 +154,10 @@ const PeopleCard = (index) => {
         if (idNumber === 1) {
             nextId = 10
         }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
         navigate(`/people/${nextId}`)
     }
 
