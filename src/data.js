@@ -1,6 +1,6 @@
 export const dataStarWars = [
     {
-        id: 1,
+        id: 1 /* lien image luke skywalker */,
         name: 'Luke Skywalker',
         picture:
             'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f584304d-836b-4b78-8efb-9c7294fe6940/dge13gk-5a045e8d-f8f4-4150-a95c-0db944184999.jpg/v1/fill/w_1280,h_1280,q_75,strp/younger_luke_skywalker_on_the_hunt_for_a_jedi_by_justinchauveaudesign_dge13gk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2Y1ODQzMDRkLTgzNmItNGI3OC04ZWZiLTljNzI5NGZlNjk0MFwvZGdlMTNnay01YTA0NWU4ZC1mOGY0LTQxNTAtYTk1Yy0wZGI5NDQxODQ5OTkuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Ke6ShXfxIWC8z2A4F8SMgl-DpWrLslJkjylimaBzQaw',
